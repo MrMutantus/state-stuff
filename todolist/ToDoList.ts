@@ -80,6 +80,9 @@ class ToDoList {
     loadFromLocalStorage(): void {
         let json = localStorage.getItem("todos");
         this.todos = JSON.parse(json);
+        if (this.todos == null) {
+            this.todos = [];
+        }
     }
 
 }

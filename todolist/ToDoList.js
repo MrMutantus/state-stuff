@@ -72,6 +72,9 @@ var ToDoList = /** @class */ (function () {
     ToDoList.prototype.loadFromLocalStorage = function () {
         var json = localStorage.getItem("todos");
         this.todos = JSON.parse(json);
+        if (this.todos == null) {
+            this.todos = [];
+        }
     };
     return ToDoList;
 }());

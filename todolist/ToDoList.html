@@ -7,13 +7,18 @@
 </head>
 <body>
 <h1>ToDo's</h1>
-<input type="text" id="inputField" placeholder="Neues Todo anlegen"><label></label> <button id="inputButton">ADD</button>
+<div id="toDoInput">
+    <input type="text" id="inputField" placeholder="Neues Todo anlegen"><label></label>
+    <button id="inputButton">Hinzufügen</button>
+</div>
 <table id="ToDos">
-    <tr>
-        <th>DONE</th>
-        <th>NOT DONE</th>
-    </tr>
+    <thead>
+        <tr class="tableHeader">
+            <th>DONE</th>
+            <th>NOT DONE</th>
+        </tr>
+    </thead>
 </table>
 </body>
-<script src="ToDoList.js" ></script>
+<script src="ToDoList.js"></script>
 </html>
