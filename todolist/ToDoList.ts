@@ -40,33 +40,33 @@ class ToDoList {
     }
 
     updateTable(): void {
-        let dos = this.todos.filter(item => item.done);
-        let donts = this.todos.filter(item => !item.done);
-        let maxsize = dos.length > donts.length ? dos.length : donts.length;
+        let dones = this.todos.filter(item => item.done);
+        let notDones = this.todos.filter(item => !item.done);
+        let maxTableSize = dones.length > notDones.length ? dones.length : notDones.length;
         let tableSize = this.table.rows.length;
-        //Clear Table keep Headrow
+        //Clear table keep table header
         for (let i = 1; i < tableSize; i++) {
             this.table.deleteRow(-1);
         }
 
-        for (let i = 0; i < maxsize; i++) {
+        for (let i = 0; i < maxTableSize; i++) {
             let newRow = this.table.insertRow();
             let newDo = newRow.insertCell(0);
             let newDont = newRow.insertCell(1);
-            newDo.innerText = dos[i] ? dos[i].text : "";
+            newDo.innerText = dones[i] ? dones[i].text : "";
             newDo.addEventListener("click", () => this.swapDoneStatus(i, "Done"))
-            newDont.innerText = donts[i] ? donts[i].text : "";
+            newDont.innerText = notDones[i] ? notDones[i].text : "";
             newDont.addEventListener("click", () => this.swapDoneStatus(i, "Not Done"))
         }
     }
 
     swapDoneStatus(index: number, oldStatus: string) {
-        let dos = this.todos.filter(item => item.done);
-        let donts = this.todos.filter(item => !item.done);
-        if (oldStatus == "Done" && index < dos.length) {
-            dos[index].done = false;
-        } else if (oldStatus == "Not Done" && index < donts.length) {
-            donts[index].done = true;
+        let dones = this.todos.filter(item => item.done);
+        let notDones = this.todos.filter(item => !item.done);
+        if (oldStatus == "Done" && index < dones.length) {
+            dones[index].done = false;
+        } else if (oldStatus == "Not Done" && index < notDones.length) {
+            notDones[index].done = true;
         }
         this.saveToLocalStorage();
         this.updateTable();
