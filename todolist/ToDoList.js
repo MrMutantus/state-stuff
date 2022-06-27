@@ -14,8 +14,6 @@ var ToDoList = /** @class */ (function () {
         this.initialLoadToDos();
     }
     ToDoList.prototype.initialLoadToDos = function () {
-        var todo = new ToDoItem("FirstItem");
-        this.todos = [todo];
         this.loadFromLocalStorage();
         this.updateTable();
     };

@@ -21,8 +21,6 @@ class ToDoList {
 
 
     initialLoadToDos() {
-        let todo = new ToDoItem("FirstItem");
-        this.todos = [todo];
         this.loadFromLocalStorage()
         this.updateTable();
     }
